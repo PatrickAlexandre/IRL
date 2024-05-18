@@ -16,22 +16,17 @@
         .artifact { color: #e6cc80; }
     </style> 
     <!--W3.CSS+Font Awesome+Chart.js-->
+    <link rel="icon" type="image/png" href="https://i.gifer.com/6Dg.gif">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="icon" type="image/png" href="https://i.gifer.com/6Dg.gif">
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body>
     <nav class="w3-margin-bottom">
-        <a id="openModalBtn" class="w3-bar-item w3-center w3-padding-large w3-hover-white" title="Biometrics">
-            <img src="https://i.gifer.com/6Dg.gif" class="w3-circle" style="height:23px;width:23px" alt="DNA🧬"> Login
-        </a>
 
         <blockquote>
         <i class="epic">Boostez votre succès avec des données ! Mesurez, Analysez, Progressez.</i>
@@ -50,24 +45,20 @@
     <div class="w3-row">
         <!-- Left Column -->
         <div class="w3-col m3">
-
-        <!-- Profile -->
-        <div class="w3-card w3-round w3-theme-d5">
-            <div class="w3-container">
-
-                <h4 class="w3-center">Profil</h4>
-                <p class="w3-center"><img src="https://www.w3schools.com/w3images/avatar3.png" class="w3-circle" style="width:106px" alt="Avatar"></p>
-                <div class="w3-round" id="progressContainer">
-                    <div class="progress-bar w3-green" id="mainProgressBar" aria-valuemin="0" aria-valuemax="200" title="🔋 Countdown"></div>
-                </div><!--Progress<div class="w3-hide progress-bar grid-item" style="width: 80%; background: linear-gradient(to right, #009246 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce2b37 66.66%);"></div>-->
-
-                <div class="w3-round w3-row-padding" id="mbti-info"></div><!-- MBTI information will be displayed here -->
-
-                <!--BUG🐞<p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>-->
+            <!-- Profile -->
+            <div class="w3-card w3-round w3-theme-d5">
+                <div class="w3-container">
+                    <small id="openModalBtn" class="w3-button w3-center">PERSONNAGE</small>
+                    <p class="w3-center"><img src="https://i.gifer.com/6Dg.gif" class="w3-circle" style="width:106px" alt="🧬"></p>
+                    <div class="w3-round" id="progressContainer">
+                        <div class="progress-bar w3-green" id="mainProgressBar" aria-valuemin="0" aria-valuemax="200" title="🔋 Countdown"></div>
+                    </div><!--Progress<div class="w3-hide progress-bar grid-item" style="width: 80%; background: linear-gradient(to right, #009246 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce2b37 66.66%);"></div>-->
+                    <!--BUG🐞<p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>-->
+                    
+                </div>
+                <div class="w3-row-padding" id="mbti-info"></div><!-- MBTI information will be displayed here -->
             </div>
-        </div>
-        <br>
-        
+
 
 
 
@@ -119,12 +110,15 @@
             <i class="fa fa-remove"></i>
             </span>
             <p contenteditable="true" class="w3-text-gray" style="cursor: text;">Général</p>
-            <p id="mb-result"></p><hr>
+            <p id="mb-result"></p>
+            <hr>
 
             <p title="🛎️ Auction House" class="w3-text-gray" style="cursor: wait;">Commerce</p><hr>
 
             <div class="w3-container w3-padding">
-                <h6 class="w3-opacity">Message to Luca</h6>
+                <div class="w3-button w3-padding-32 w3-round" onclick="window.open('https://chat.openai.com/g/g-3VrgJ1GpH-sous-chef')" style="background-image: url('css/SousChef.jpg');color: white; background-size: cover; background-position: center;">Sous-Chef</div>
+                <h6 class="w3-hide w3-opacity">I’ll give you recipes based on the foods you love and ingredients you have.</h6>
+                <br>
                 <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
                 <button type="button" class="w3-button w3-theme"><i class="fas fa-paper-plane"></i>  Post</button>
             </div>
@@ -141,18 +135,108 @@
         <!-- Middle Column -->
         <div class="w3-col m7">
         <div class="w3-row-padding">
-            <div class="w3-center"><!--POMOdoro⌛-->
-                <canvas id="myChart"></canvas><!--[TIME] + Optimisation Habitudes/(31 D) + app.flocus-->
 
-                <iframe class="w3-round w3-card"
-                    src="https://flocus.com/minimalist-pomodoro-timer/"
-                    title="Flocus Pomodoro Timer" 
-                    style="width: 100%; height: 315px; border: 0;"
-                    allowfullscreen
-                >
-                    Votre navigateur ne supporte pas les iframes.
-                </iframe>
+            <iframe class="w3-half w3-round"
+                src="https://flocus.com/minimalist-pomodoro-timer/"
+                title="Flocus Pomodoro Timer" 
+                style="height: 315px; border: 0;"
+                allowfullscreen
+            >
+                Votre navigateur ne supporte pas les iframes.
+            </iframe>
+            
+            <div id="coicop-section" class="w3-half"><!--Ressources > Finances > Dépenses > COICOP max12-->
 
+                <div class="w3-card w3-round w3-white w3-center w3-margin-bottom">
+                    <div class="w3-container"><!--Conseil client > {48Powers}-->
+                    <b>POwer</b>
+                    <div class="w3-row w3-opacity">
+                        <div class="w3-half w3-block">
+                            <button class="w3-button w3-block w3-green w3-section" title="Respect de la loi"><i class="fa-solid fa-scale-balanced"></i></button>
+                        </div>
+                        <div class="w3-half">
+                            <button class="w3-button w3-block w3-blue w3-section" title="Violations de la loi"><i class="fa-solid fa-gavel"></i></button>
+                        </div>
+                        <div class="w3-third">
+                            <button class="w3-button w3-red w3-block et w3-section" title="Citation Auteur Date"><i class="fa-solid fa-bookmark"></i></button>
+                            <i class="w3-text-red">48Pw</i><br>
+                        </div>
+                        <div class="w3-third">
+                            <button class="w3-button w3-yellow w3-block et w3-section" title="Informations importantes"><i class="fa-solid fa-exclamation"></i></button>
+                            <i class="w3-text-yellow">INFo</i><br>
+                        </div>
+                        <div class="w3-third">
+                            <button class="w3-button w3-purple w3-block et w3-section" title="Aide"><i class="fa-solid fa-question"></i></button>
+                            <i class="w3-text-purple">AIde</i><br>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+                <input type="file" id="csvFile" accept=".csv">
+                <table id="coicop-table" class="w3-card w3-black w3-round">
+                    
+                    <thead>
+                        <tr title="Dépenses COICOP">
+                            <th>
+                                <iframe src="https://indify.co/widgets/live/progressBar/0ZLxdaOuuNO8RzKgWvbt" width="100%" height="33px" frameborder="0" scrolling="no">time</iframe>
+                            </th>
+                            <th><span class="fa-solid fa-file-csv"></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-utensils icon"></i> Alimentation et boissons non alcoolisées</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-wine-bottle icon"></i> Boissons alcoolisées, tabac et narcotiques</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-tshirt icon"></i> Articles d'habillement et chaussures</td>
+                            <td>8%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-home icon"></i> Logement, eau, électricité, gaz et autres combustibles</td>
+                            <td>25%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-couch icon"></i> Ameublement, équipement ménager et entretien courant de la maison</td>
+                            <td>6%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-heartbeat icon"></i> Santé</td>
+                            <td>7%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-car icon"></i> Transports</td>
+                            <td>13%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-phone icon"></i> Communications</td>
+                            <td>3%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-theater-masks icon"></i> Loisirs et culture</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-graduation-cap icon"></i> Éducation</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-concierge-bell icon"></i> Restaurants et hôtels</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-gifts icon"></i> Biens et services divers</td>
+                            <td>4%</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
             </div>
 
         </div>
@@ -175,114 +259,16 @@
         
         <!-- Right Column -->
         <div class="w3-col m2">
-        <div title="Pomodori Steps Historique de combat" class="w3-card w3-round w3-white w3-center">
-            <iframe class="w3-round" src="https://indify.co/widgets/live/progressBar/0ZLxdaOuuNO8RzKgWvbt" width="100%" height="40px" frameborder="0" scrolling="no">time</iframe>
+
+        <div title="Pomodori Steps Historique de combat" class="w3-card w3-circle w3-center">
             <div class="w3-container">
                 <i class="fa-solid fa-stairs"></i>
                 <p class="w3-text-gray"> Next move</p>
             </div>
         </div><br>
 
-        <div class="w3-card w3-round w3-white w3-center">
-            <div class="w3-container">
-            <!--{48Powers}-->
-            <b>POwer</b>
-            <div class="w3-row w3-opacity">
-
-
-                <div class="w3-half w3-block">
-                    <button class="w3-button w3-block w3-green w3-section" title="Respect de la loi"><i class="fa-solid fa-scale-balanced"></i></button>
-                </div>
-                <div class="w3-half">
-                    <button class="w3-button w3-block w3-blue w3-section" title="Violations de la loi"><i class="fa-solid fa-gavel"></i></button>
-                </div>
-                <div class="w3-third">
-                    <button class="w3-button w3-red w3-block et w3-section" title="Citation Auteur Date"><i class="fa-solid fa-bookmark"></i></button>
-                    <i class="w3-text-red">48Pw</i><br>
-                </div>
-                <div class="w3-third">
-                    <button class="w3-button w3-yellow w3-block et w3-section" title="Informations importantes"><i class="fa-solid fa-exclamation"></i></button>
-                    <i class="w3-text-yellow">INFo</i><br>
-                </div>
-                <div class="w3-third">
-                    <button class="w3-button w3-purple w3-block et w3-section" title="Aide"><i class="fa-solid fa-question"></i></button>
-                    <i class="w3-text-purple">AIde</i><br>
-                </div>
-
-            </div>
-            </div>
-        </div>
-
-        <div id="chromosomes-grid" class="grid-container w3-card"></div><!--Les chromosomes sont ajoutés ici par JavaScript-->
-        <div style="width: 100%;">
-            <h2>Ressources</h2>
-            <h4>Bourse</h4>            
-            <div id="coicop-section">
-                <table id="coicop-table" class="w3-theme-d5 w3-round w3-card"><!--COICOP{MAX:12}-->
-                    <thead>
-                        <tr>
-                            <th>Dépense</th>
-                            <th>100%</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><i class="fas fa-utensils icon"></i> 1. Alimentation et boissons non alcoolisées</td>
-                            <td>10%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-wine-bottle icon"></i> 2. Boissons alcoolisées, tabac et narcotiques</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-tshirt icon"></i> 3. Articles d'habillement et chaussures</td>
-                            <td>8%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-home icon"></i> 4. Logement, eau, électricité, gaz et autres combustibles</td>
-                            <td>25%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-couch icon"></i> 5. Ameublement, équipement ménager et entretien courant de la maison</td>
-                            <td>6%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-heartbeat icon"></i> 6. Santé</td>
-                            <td>7%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-car icon"></i> 7. Transports</td>
-                            <td>13%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-phone icon"></i> 8. Communications</td>
-                            <td>3%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-theater-masks icon"></i> 9. Loisirs et culture</td>
-                            <td>10%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-graduation-cap icon"></i> 10. Éducation</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-concierge-bell icon"></i> 11. Restaurants et hôtels</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-gifts icon"></i> 12. Biens et services divers</td>
-                            <td>4%</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-                <br>
-            </div>
-        </div>
-        
         <iframe class="w3-hide-large" width="100%" height="315" src="https://www.youtube.com/embed/videoseries?si=BF75NmTCdUIcIDhe&amp;list=PL1nW8kmXdSU6zxdIV-tyekwCnxcVeDgqa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+        
         <!-- End Right Column -->
         </div>
         
@@ -296,8 +282,8 @@
 
 
 
-
-    <div class="w3-center w3-row-padding w3-margin" >
+    <div class="w3-hide-small w3-center w3-row-padding w3-margin" >
+        <!--<div class="w3-hide progress-bar w3-round w3-margin-bottom" aria-valuemin="0" aria-valuemax="888" title="EXP" style="width: 90%; background-color: #263b9c;"></div>-->
         <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr1 : Taille, intelligence"><i class="fas fa-dna"></i></div>
         <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr2 : Croissance, développement"><i class="fas fa-flask"></i></div>
         <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr3 : Régénération, os"><i class="fas fa-bone"></i></div>
@@ -323,7 +309,6 @@
         <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr23 : Sexe, Genre"><i class="fas fa-venus-mars"></i></div>
     </div>
 
-
     <div id="metabolismModal" class="modal"><!--🔒☣️Bio métriques-->
 
             <div class="modal-content"><span title="🧪" class="close">&times;</span>
@@ -343,7 +328,7 @@
                         <option value="XX" title="Female, Woman" aria-label="Female, Woman ♀️">Female 👩</option>
                         <option value="XY" title="Male, Man" aria-label="Male, Man ♂️">Male 👨</option>
                     </select>
-                    <div class="w3-margin-top w3-hide">
+                    <div class="w3-margin-top">
                         <button class="w3-button w3-blue w3-margin-right" onclick="return login('facebook')">
                             <i class="fab fa-facebook-f" alt="Facebook"></i> Connexion Facebook
                         </button>
@@ -359,6 +344,7 @@
 
                     <label for="mbti-select" class="w3-text-gray">Type </label>
                     <select id="mbti-select" class="w3-round w3-hover-red">
+                        <option value="ISTP">ISTP 🛠️</option>
                         <option value="ENTJ">ENTJ 🎯</option>
                         <option value="ESTJ">ESTJ 📊</option>
                         <option value="INTP">INTP 🔍</option>
@@ -369,7 +355,6 @@
                         <option value="ISFJ">ISFJ 🌼</option>
                         <option value="INFJ">INFJ 🌟</option>
                         <option value="INTJ">INTJ 🧠</option>
-                        <option value="ISTP">ISTP 🛠️</option>
                         <option value="INFP">INFP 💭</option>
                         <option value="ESFP">ESFP 🎉</option>
                         <option value="ENFP">ENFP 🌈</option>

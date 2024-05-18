@@ -12,43 +12,12 @@ nav {
     justify-content: space-between;
 }
 
-.nav-buttons button {
-    background-color: #FFD700; /* gold buttons */
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.nav-buttons button:hover {
-    background-color: #FFA500; /* orange on hover */
-}
-
 #openModalBtn {
     color: #FFF;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
     border: none;
-}
-
-#openModalBtn:hover {
-    background-color: #228B22; /* dark green on hover */
-}
-
-a.w3-button {
-    background-color: #FFD700;
-    color: #000;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-a.w3-button:hover {
-    background-color: #FFA500;
 }
 
 .progress-container {
