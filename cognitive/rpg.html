@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de Personnage</title>
+
+    <style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #0070dd; /* Couleur caractéristique de WoW */
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #0070dd;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0054a6;
+}
+
+    </style>
+</head>
+<body>
+    <form action="process.php" method="post">
+        <fieldset>
+            <legend>@Left Column</legend>
+            <label for="sexe">SEXE</label><br>
+            <input type="radio" id="sexe_masculin" name="sexe" value="Masculin">
+            <label for="sexe_masculin">♂️</label><br>
+            <input type="radio" id="sexe_feminin" name="sexe" value="Féminin">
+            <label for="sexe_feminin">♀️</label><br><br>
+
+            <label for="personnalisation">RACE (Chr)</label><br>            
+
+            <!--
+            <input type="radio" id="faction_gardiens" name="faction" value="Gardiens de l'Équilibre">
+            <label for="faction_gardiens">Faction des Gardiens de l'Équilibre 🌿</label><br>
+            <input type="radio" id="faction_ombres" name="faction" value="Ordre des Ombres">
+            <label for="faction_ombres">Faction de l'Ordre des Ombres 🌑</label><br><br>
+            
+            <p><strong>Faction des Gardiens de l'Équilibre :</strong> Les Gardiens de l'Équilibre sont des protecteurs de la nature et des gardiens des forces élémentales de l'univers. Leur objectif est de maintenir l'harmonie entre les différentes forces magiques et naturelles. Leur spécialisation principale est la magie élémentaire, et ils ont des compétences spéciales liées à la manipulation des éléments.</p>
+            
+            <p><strong>Faction de l'Ordre des Ombres :</strong> L'Ordre des Ombres est une faction secrète et mystérieuse qui œuvre dans l'ombre pour préserver l'équilibre du pouvoir entre les différentes factions du monde. Leurs membres sont des experts de l'infiltration, de l'espionnage et de la manipulation politique. Ils ont des compétences spéciales liées à l'assassinat, à la furtivité et à la manipulation des ombres.</p>
+            -->
+
+            <!-- <label for="race">3. Choix de la race :</label><br>
+            <select id="race" name="race">
+                <option value="humain">Humain</option>
+                <option value="elfe">Elfe</option>
+                <option value="nain">Nain</option>
+                Ajoutez d'autres options de race selon votre jeu 
+            </select><br><br>-->
+            
+
+        </fieldset>
+
+        <fieldset>
+            <legend>CLASSE @Right Column</legend>
+
+            <label for="classe">CLASSE (MBTI)</label><br>
+            <select id="classe" name="classe">
+                <option value="MBTI">MBTI</option>
+                <!-- Ajoutez d'autres options de classe selon votre jeu -->
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Apparence @Center</legend>
+
+            <label for="nom">2. Choix du nom du personnage :</label><br>
+            <input type="text" id="nom" name="nom" placeholder="Nom du personnage" required><br><br>
+            
+            <label for="details_suppl">3. Personnalisation des détails supplémentaires :</label><br>
+            <textarea id="details_suppl" name="details_suppl" placeholder="Tel que le choix de la spécialisation pour certaines classes, les compétences raciales, etc."></textarea><br><br>
+
+            <legend>B : Finalisation</legend>
+            <input type="submit" value="Finaliser et Entrer dans le jeu">
+        </fieldset>
+
+    </form>
+</body>
+</html>
