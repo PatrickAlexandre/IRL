@@ -42,21 +42,6 @@ nav {
     margin: 20px 0;
 }
 
-#mbti-select,
-.w3-input,
-.w3-select {
-    background-color: #FFFACD; /* lemon chiffon inputs */
-    border: 2px solid #000;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-#mbti-select:hover,
-.w3-input:hover,
-.w3-select:hover {
-    background-color: #FFF8DC; /* cornsilk on hover */
-}
-
 .modal {
     display: none;
     position: fixed;

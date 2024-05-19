@@ -1,349 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Self Meta, Unlock Your True Self</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style>
-        /* Ajout des couleurs en fonction du pourcentage de dépenses */
-        .legendary { color: #ff8000; }        
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; }
+        .legendary { color: #ff8000; }
         .epic { color: #a335ee; }
         .rare { color: #0070dd; }
         .uncommon { color: #1eff00; }
         .common { color: #ffffff; }
         .poor { color: #9d9d9d; }
         .artifact { color: #e6cc80; }
-    </style> 
-    <!--W3.CSS+Font Awesome+Chart.js-->
+        .w3-container { padding: 16px; }
+        .w3-card { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 8px; overflow: hidden; }
+        .w3-round { border-radius: 8px; }
+        .w3-button { display: inline-block; padding: 8px 16px; margin: 4px 2px; border: none; border-radius: 4px; cursor: pointer; background-color: #4CAF50; color: white; text-align: center; }
+        .w3-button:hover { background-color: #45a049; }
+        .w3-margin-top { margin-top: 16px; }
+        .w3-margin-bottom { margin-bottom: 16px; }
+        .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); padding-top: 60px; }
+        .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; border-radius: 8px; }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+        .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
+        .w3-theme-d5 { background-color: #3c4f65; color: white; }
+        .w3-theme-l2 { background-color: #9ab8d3; color: white; }
+        .w3-theme-l3 { background-color: #c7d6e2; color: black; }
+        .w3-text-theme { color: #3c4f65; }
+        .w3-border { border: 1px solid #ccc; }
+        .w3-theme-border { border-color: #3c4f65; }
+        .w3-opacity { opacity: 0.8; }
+        .progress-bar { height: 24px; background-color: #4caf50; width: 0; border-radius: 8px; }
+        .grid-item { display: inline-block; margin: 2px; padding: 8px; background-color: #fff; border-radius: 4px; cursor: pointer; text-align: center; }
+        .grid-item:hover { background-color: #f1f1f1; }
+        .footer { padding: 10px; background-color: #3c4f65; color: white; text-align: center; }
+        .icon-container { display: flex; justify-content: space-around; padding: 10px; }
+    </style>
     <link rel="icon" type="image/png" href="https://i.gifer.com/6Dg.gif">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
-
+    <script src="cognitive/logic.js"></script>
 </head>
+
 <body>
-    <nav class="w3-margin-bottom">
-
-        <blockquote>
-        <i class="epic">Boostez votre succès avec des données ! Mesurez, Analysez, Progressez.</i>
-        </blockquote>
-
-
-        <a href="https://modl.w3spaces.com/cognitive/biases.html" class="w3-button w3-green w3-margin-right w3-hide">
-            <i class="fas fa-atom"></i> Cognitive
-        </a>
-    </nav>
-
-
-    <!-- Page Container -->
-    <div class="w3-container w3-content">    
-    <!-- The Grid -->
-    <div class="w3-row">
-        <!-- Left Column -->
-        <div class="w3-col m3">
-            <!-- Profile -->
-            <div class="w3-card w3-round w3-theme-d5">
+    <header class="w3-container w3-theme-d5 w3-padding-16 w3-center"><h1>Self Meta, Unlock Your True Self</h1></header>
+    <main class="w3-container w3-content w3-margin-top"><div class="w3-row">
+        <aside class="w3-col m3">
+            <section class="w3-card w3-round w3-theme-d5"><div class="w3-container">
+                <p class="w3-center"><img src="https://i.gifer.com/6Dg.gif" class="w3-circle" style="width:106px" alt="🧬"></p>
+                <div class="w3-round" id="progressContainer"><div class="progress-bar w3-green" id="mainProgressBar" aria-valuemin="0" aria-valuemax="200" title="🔋 Countdown"></div></div>
+            </div>
+            <div class="w3-row-padding" id="mbti-info"></div>
+            <button id="openModalBtn" class="w3-button w3-text-theme w3-center w3-margin-top w3-round" title="🎫">PERSONNAGE</button></section>
+            <section class="w3-container w3-display-container w3-center w3-round w3-theme-l2 w3-border w3-theme-border w3-margin-top">
+                <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright"><i class="fa fa-remove"></i></span>
+                <p contenteditable="true" class="w3-text-theme" style="cursor: text;">Général</p>
+                <p id="mb-result"></p>
+                <hr>
+                <p title="🛎️ Auction House" class="w3-text-theme" style="cursor: wait;">Commerce</p>
                 <div class="w3-container">
-                    <small id="openModalBtn" class="w3-button w3-center">PERSONNAGE</small>
-                    <p class="w3-center"><img src="https://i.gifer.com/6Dg.gif" class="w3-circle" style="width:106px" alt="🧬"></p>
-                    <div class="w3-round" id="progressContainer">
-                        <div class="progress-bar w3-green" id="mainProgressBar" aria-valuemin="0" aria-valuemax="200" title="🔋 Countdown"></div>
-                    </div><!--Progress<div class="w3-hide progress-bar grid-item" style="width: 80%; background: linear-gradient(to right, #009246 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce2b37 66.66%);"></div>-->
-                    <!--BUG🐞<p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>-->
-                    
+                    <div class="w3-round-large w3-card-4 w3-button w3-padding-large w3-hover-opacity" onclick="window.open('https://chat.openai.com/g/g-3VrgJ1GpH-sous-chef')" style="background-image: url('css/SousChef.jpg'); color: white; background-size: cover; background-position: center; text-shadow: 2px 2px 4px #000;">Sous-Chef</div>
+                    <h6 class="w3-opacity">I’ll give you recipes based on the foods you love and ingredients you have.</h6>
                 </div>
-                <div class="w3-row-padding" id="mbti-info"></div><!-- MBTI information will be displayed here -->
-            </div>
-
-
-
-
-        <!-- Accordion 
-        <div class="w3-card w3-round">
-            <div class="w3-white">
-            <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-            <div id="Demo1" class="w3-hide w3-container">
-                <p>Some text..</p>
-            </div>
-            <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
-            <div id="Demo2" class="w3-hide w3-container">
-                <p>Some other text..</p>
-            </div>
-            <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
-            <div id="Demo3" class="w3-hide w3-container">
+                <hr>
+                <div class="w3-container w3-padding">
+                    <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
+                    <button type="button" class="w3-button w3-theme"><i class="fas fa-paper-plane"></i> Post</button>
+                </div>
+            </section>
+        </aside>
+        <section class="w3-col m7">
             <div class="w3-row-padding">
-            <br>
-            <div class="w3-half">
-                <img src="https://www.w3schools.com/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+                <iframe class="w3-round" src="https://flocus.com/minimalist-pomodoro-timer/" title="Flocus Pomodoro Timer" style="width: 100%; height: 450px; border: 0;" allowfullscreen>Votre navigateur ne supporte pas les iframes.</iframe>
+                <iframe class="w3-round" width="100%" height="315" src="https://www.youtube.com/embed/videoseries?si=BF75NmTCdUIcIDhe&amp;list=PL1nW8kmXdSU6zxdIV-tyekwCnxcVeDgqa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <div class="w3-half">
-                <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-            </div>
-            <div class="w3-half">
-                <img src="https://www.w3schools.com/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
-            </div>
-            <div class="w3-half">
-                <img src="https://www.w3schools.com/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
-            </div>
-            <div class="w3-half">
-                <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-            </div>
-            <div class="w3-half">
-                <img src="https://www.w3schools.com/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
-            </div>
-            </div>
-            </div>
-            </div>      
-        </div>
-        <br>-->
-        
-
-        <br>
-        
-        <!-- Alert Box -->
-        <div class="w3-container w3-display-container w3-center w3-round w3-theme-l4 w3-border w3-theme-border">
-            <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-            <i class="fa fa-remove"></i>
-            </span>
-            <p contenteditable="true" class="w3-text-gray" style="cursor: text;">Général</p>
-            <p id="mb-result"></p>
-            <hr>
-
-            <p title="🛎️ Auction House" class="w3-text-gray" style="cursor: wait;">Commerce</p><hr>
-
-            <div class="w3-container w3-padding">
-                <div class="w3-button w3-padding-32 w3-round" onclick="window.open('https://chat.openai.com/g/g-3VrgJ1GpH-sous-chef')" style="background-image: url('css/SousChef.jpg');color: white; background-size: cover; background-position: center;">Sous-Chef</div>
-                <h6 class="w3-hide w3-opacity">I’ll give you recipes based on the foods you love and ingredients you have.</h6>
-                <br>
-                <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-                <button type="button" class="w3-button w3-theme"><i class="fas fa-paper-plane"></i>  Post</button>
-            </div>
-        </div>
-
-
-
-
-
-
-        <!-- End Left Column -->
-        </div>
-        
-        <!-- Middle Column -->
-        <div class="w3-col m7">
-        <div class="w3-row-padding">
-
-            <iframe class="w3-half w3-round"
-                src="https://flocus.com/minimalist-pomodoro-timer/"
-                title="Flocus Pomodoro Timer" 
-                style="height: 315px; border: 0;"
-                allowfullscreen
-            >
-                Votre navigateur ne supporte pas les iframes.
-            </iframe>
-            
-            <div id="coicop-section" class="w3-half"><!--Ressources > Finances > Dépenses > COICOP max12-->
-
-                <div class="w3-card w3-round w3-white w3-center w3-margin-bottom">
-                    <div class="w3-container"><!--Conseil client > {48Powers}-->
-                    <b>POwer</b>
-                    <div class="w3-row w3-opacity">
-                        <div class="w3-half w3-block">
-                            <button class="w3-button w3-block w3-green w3-section" title="Respect de la loi"><i class="fa-solid fa-scale-balanced"></i></button>
-                        </div>
-                        <div class="w3-half">
-                            <button class="w3-button w3-block w3-blue w3-section" title="Violations de la loi"><i class="fa-solid fa-gavel"></i></button>
-                        </div>
-                        <div class="w3-third">
-                            <button class="w3-button w3-red w3-block et w3-section" title="Citation Auteur Date"><i class="fa-solid fa-bookmark"></i></button>
-                            <i class="w3-text-red">48Pw</i><br>
-                        </div>
-                        <div class="w3-third">
-                            <button class="w3-button w3-yellow w3-block et w3-section" title="Informations importantes"><i class="fa-solid fa-exclamation"></i></button>
-                            <i class="w3-text-yellow">INFo</i><br>
-                        </div>
-                        <div class="w3-third">
-                            <button class="w3-button w3-purple w3-block et w3-section" title="Aide"><i class="fa-solid fa-question"></i></button>
-                            <i class="w3-text-purple">AIde</i><br>
-                        </div>
-
-                    </div>
-                    </div>
-                </div>
-
-                <input type="file" id="csvFile" accept=".csv">
-                <table id="coicop-table" class="w3-card w3-black w3-round">
-                    
-                    <thead>
-                        <tr title="Dépenses COICOP">
-                            <th>
-                                <iframe src="https://indify.co/widgets/live/progressBar/0ZLxdaOuuNO8RzKgWvbt" width="100%" height="33px" frameborder="0" scrolling="no">time</iframe>
-                            </th>
-                            <th><span class="fa-solid fa-file-csv"></span></th>
-                        </tr>
-                    </thead>
+        </section>
+        <aside class="w3-col m2 w3-round">
+            <section id="coicop-section" class="w3-card w3-theme-l2 w3-margin-top"><div class="w3-container w3-padding">
+                <h5 class="w3-text-theme">Ressources</h5>
+                <table id="coicop-table" class="w3-table-all w3-hoverable">
+                    <thead title="Dépenses par COICOP"><tr><th>Catégorie</th><th>Pourcentage</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td><i class="fas fa-utensils icon"></i> Alimentation et boissons non alcoolisées</td>
-                            <td>10%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-wine-bottle icon"></i> Boissons alcoolisées, tabac et narcotiques</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-tshirt icon"></i> Articles d'habillement et chaussures</td>
-                            <td>8%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-home icon"></i> Logement, eau, électricité, gaz et autres combustibles</td>
-                            <td>25%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-couch icon"></i> Ameublement, équipement ménager et entretien courant de la maison</td>
-                            <td>6%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-heartbeat icon"></i> Santé</td>
-                            <td>7%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-car icon"></i> Transports</td>
-                            <td>13%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-phone icon"></i> Communications</td>
-                            <td>3%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-theater-masks icon"></i> Loisirs et culture</td>
-                            <td>10%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-graduation-cap icon"></i> Éducation</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-concierge-bell icon"></i> Restaurants et hôtels</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fas fa-gifts icon"></i> Biens et services divers</td>
-                            <td>4%</td>
-                        </tr>
-                        
+                        <tr><td><i class="fas fa-utensils icon"></i> Alimentation et boissons non alcoolisées</td><td>0%</td></tr>
+                        <tr><td><i class="fas fa-wine-bottle icon"></i> Boissons alcoolisées, tabac et narcotiques</td><td>0%</td></tr>
+                        <tr><td><i class="fas fa-tshirt icon"></i> Articles d'habillement et chaussures</td><td>0%</td></tr>
+                        <tr><td><i class="fas fa-home icon"></i> Logement, eau, électricité, gaz et autres combustibles</td><td>0%</td></tr>
+                        <tr><td><i class="fas fa-couch icon"></i> Ameublement, équipement ménager et entretien courant de la maison</td><td>0%</td></tr>
+                        <tr><td><i class="fas fa-heartbeat icon"></i> Santé</td><td>0%</</td></tr>
+                        <tr><td><i class="fas fa-car icon"></i> Transports</td><td>0%</</td></tr>
+                        <tr><td><i class="fas fa-phone icon"></i> Communications</td><td>0%</</td></tr>
+                        <tr><td><i class="fas fa-theater-masks icon"></i> Loisirs et culture</td><td>0%</</td></tr>
+                        <tr><td><i class="fas fa-graduation-cap icon"></i> Éducation</td><td>0%</</td></tr>
+                        <tr><td><i class="fas fa-concierge-bell icon"></i> Restaurants et hôtels</td><td>0%</</td></tr>
+                        <tr><td><i class="fas fa-gifts icon"></i> Biens et services divers</td><td>0%</</td></tr>
                     </tbody>
                 </table>
-            </div>
-
-        </div>
-
-        <!--Tools🛠️
-        <div class="w3-container w3-hide w3-card w3-white w3-round w3-margin"><br>
-            <img src="https://www.w3schools.com/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-            <span class="w3-right w3-opacity">16 min</span>
-            <h4>Jane Doe</h4><br>
-            <hr class="w3-clear">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-            <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-        </div>  
-        -->
-
-        
-        <!-- End Middle Column -->
-        </div>
-        
-        <!-- Right Column -->
-        <div class="w3-col m2">
-
-        <div title="Pomodori Steps Historique de combat" class="w3-card w3-circle w3-center">
-            <div class="w3-container">
-                <i class="fa-solid fa-stairs"></i>
-                <p class="w3-text-gray"> Next move</p>
-            </div>
-        </div><br>
-
-        <iframe class="w3-hide-large" width="100%" height="315" src="https://www.youtube.com/embed/videoseries?si=BF75NmTCdUIcIDhe&amp;list=PL1nW8kmXdSU6zxdIV-tyekwCnxcVeDgqa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        
-        <!-- End Right Column -->
-        </div>
-        
-
-
-    <!-- End Grid -->
-    </div>
-
-    <!-- End Page Container -->
-    </div>
-
-
-
-    <div class="w3-hide-small w3-center w3-row-padding w3-margin" >
-        <!--<div class="w3-hide progress-bar w3-round w3-margin-bottom" aria-valuemin="0" aria-valuemax="888" title="EXP" style="width: 90%; background-color: #263b9c;"></div>-->
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr1 : Taille, intelligence"><i class="fas fa-dna"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr2 : Croissance, développement"><i class="fas fa-flask"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr3 : Régénération, os"><i class="fas fa-bone"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr4 : Immunité, fibrose"><i class="fas fa-shield-alt"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr5 : Système nerveux"><i class="fas fa-brain"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr6 : Immunité, hémoglobine"><i class="fas fa-virus"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr7 : Fibrose, digestion"><i class="fas fa-stethoscope"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr8 : Croissance, cancer"><i class="fas fa-user-md"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr9 : Sang, groupe sanguin"><i class="fas fa-tint"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr10 : Croissance, cancer"><i class="fas fa-disease"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr11 : Hémoglobine, cancer"><i class="fas fa-heart"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr12 : Albinisme, coagulation"><i class="fas fa-snowflake"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr13 : Cancer, développement"><i class="fas fa-cog"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr14 : Maladies génétiques"><i class="fas fa-bug"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr15 : Prader-Willi, Angelman"><i class="far fa-sad-cry"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr16 : Tumeur, rein"><i class="fas fa-heartbeat"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr17 : Cancer, sein"><i class="fas fa-anchor"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr18 : Maladies, développement"><i class="fas fa-virus-slash"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr19 : Métabolisme, myopathie"><i class="fas fa-microscope"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr20 : Epilepsie, diabète"><i class="fas fa-diagnoses"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr21 : Syndrome, Down"><i class="fas fa-user"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr22 : Neurofibromatose, tumeurs"><i class="fas fa-brain"></i></div>
-        <div class="w3-button grid-item w3-round w3-padding-small" style="min-width: 26px;" title="Chr23 : Sexe, Genre"><i class="fas fa-venus-mars"></i></div>
-    </div>
-
-    <div id="metabolismModal" class="modal"><!--🔒☣️Bio métriques-->
-
-            <div class="modal-content"><span title="🧪" class="close">&times;</span>
-                
+            </div></section>
+            <section class="w3-card w3-container w3-theme-l2 w3-margin-top"><h5 class="w3-text-theme"><i class="fa-solid fa-stairs"></i> Quêtes journalières</h5>
+                <ul class="w3-ul w3-border w3-hoverable"><li>1. Complete 5 tasks</li><li>2. Walk 10,000 steps</li><li>3. Drink 2 liters of water</li></ul>
+            </section>
+            <section class="w3-card w3-container w3-theme-l2 w3-margin-top"><h5 class="w3-text-theme">Stats Journalières</h5>
+                <div><p><i class="fas fa-fire"></i> Calories brûlées : 0</p><p><i class="fas fa-walking"></i> Pas effectués : 0</p><p><i class="fas fa-bed"></i> Heures de sommeil : 0</p></div>
+            </section>
+            <section class="w3-card w3-container w3-theme-l2 w3-margin-top"><h5 class="w3-text-theme">Réflexion du Jour</h5><p>"Chaque jour est une opportunité pour devenir une meilleure version de soi-même."</p></section>
+        </aside>
+    </div></main>
+    <footer class="footer"><div class="icon-container">
+        <i class="fas fa-cog"></i><i class="fas fa-user"></i><i class="fas fa-map"></i>
+    </div><p>Self Meta © 2024</p></footer>
+    <div class="w3-display-container"><div class="w3-display-middle" style="width: 50%;">
+        <iframe class="w3-border-0 w3-round-large" style="height: 30px; width: 100%;" src="https://indify.co/widgets/live/progressBar/0ZLxdaOuuNO8RzKgWvbt" frameborder="0" scrolling="no"></iframe>
+    </div></div>
+    <footer class="w3-container w3-theme-d3 w3-padding-16 w3-center">
+        <div><a href="https://www.facebook.com/PatrickAlexandreAssis/" class="w3-button w3-theme-l1 w3-round"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@patrick.axd" class="w3-button w3-theme-l1 w3-round"><i class="fab fa-tiktok"></i></a>
+        <a href="https://instagram.com/patrickalexandreassis" class="w3-button w3-theme-l1 w3-round"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.snapchat.com/add/bon0bo" class="w3-button w3-theme-l1 w3-round"><i class="fab fa-snapchat-ghost"></i></a>
+        <a href="https://www.youtube.com/channel/UC53j2mdxUAIH5deJV68aelw?sub_confirmation=1" class="w3-button w3-theme-l1 w3-round"><i class="fab fa-youtube"></i></a>
+        <a href="https://open.spotify.com/user/9wx2a30jirb70h48nxx9dhbjg" class="w3-button w3-theme-l1 w3-round"><i class="fab fa-spotify"></i></a>
+        <a href="https://paypal.me/PatrickAssis" class="w3-button w3-theme-l1 w3-round"><i class="fab fa-paypal"></i></a></div>
+    </footer>
+    <div id="metabolismModal" class="modal" aria-hidden="true" aria-labelledby="metabolismModalLabel">
+        <div class="modal-content"><span class="close" aria-label="Close">&times;</span>
             <form id="mb-form" class="w3-container">
-                    <!--<h2 title="Bio" contenteditable="true" class="w3-container w3-theme-l5 w3-margin-top w3-padding-16">🐲🍮  Pseudo :  ♔☹</h2>-->
-                <div class="w3-card w3-round w3-theme-l5 w3-padding-large">
+                <div class="w3-card w3-round w3-theme-d5 w3-padding-large">
                     <input type="text" id="prenom" name="prenom" placeholder="Prénom" required><br>
                     <input type="text" id="nom" name="nom" placeholder="Nom de famille" required><br>
                     <input type="text" id="contact" name="contact" placeholder="Numéro de mobile ou e-mail" required><br>
                     <input type="password" id="motdepasse" name="motdepasse" placeholder="Nouveau mot de passe" required><br>
                     <small for="date_naissance" class="w3-text-gray">Date de naissance</small><br>
                     <input type="date" id="dob" name="dob" required><br>
-                    <!--<label for="homme"><input type="radio" id="homme" name="genre" value="Homme" required><i class="fa fa-mars"></i>Homme</label>                    <label for="femme"><input type="radio" id="femme" name="genre" value="Femme" required><i class="fa fa-venus"></i>Femme</label>-->                   
                     <small for="chromosome" class="w3-text-gray">Sexe <i class="fas fa-venus-mars" aria-hidden="true"></i></small><br>
-                    <select id="chromosome" name="chromosome" aria-labelledby="chromosome-label">
-                        <option value="XX" title="Female, Woman" aria-label="Female, Woman ♀️">Female 👩</option>
-                        <option value="XY" title="Male, Man" aria-label="Male, Man ♂️">Male 👨</option>
-                    </select>
+                    <select id="chromosome" name="chromosome" aria-labelledby="chromosome-label"><option value="XX" title="Female, Woman" aria-label="Female, Woman ♀️">Female 👩</option><option value="XY" title="Male, Man" aria-label="Male, Man ♂️">Male 👨</option></select>
                     <div class="w3-margin-top">
-                        <button class="w3-button w3-blue w3-margin-right" onclick="return login('facebook')">
-                            <i class="fab fa-facebook-f" alt="Facebook"></i> Connexion Facebook
-                        </button>
-                        <button class="w3-button w3-red w3-margin-right" onclick="return login('google')">
-                            <i class="fab fa-google" alt="Google"></i> Accès rapide
-                        </button>
-                    </div><!--login🌐 Social Media-->
+                        <button class="w3-button w3-blue w3-margin-right" onclick="return login('facebook')"><i class="fab fa-facebook-f" alt="Facebook"></i> Connexion Facebook</button>
+                        <button class="w3-button w3-red w3-margin-right" onclick="return login('google')"><i class="fab fa-google" alt="Google"></i> Accès rapide</button>
+                    </div>
                 </div>
-
                 <br>
-
-                <div class="w3-card w3-round w3-center w3-theme-l5 w3-padding-small">
-
-                    <label for="mbti-select" class="w3-text-gray">Type </label>
-                    <select id="mbti-select" class="w3-round w3-hover-red">
+                <div class="w3-card w3-round w3-theme-d5 w3-padding-large">
+                    <small for="mbti-select" class="w3-text-gray">Type</small><br>
+                    <select id="mbti-select" class="w3-round w3-padding-small w3-red w3-hover-black">
                         <option value="ISTP">ISTP 🛠️</option>
                         <option value="ENTJ">ENTJ 🎯</option>
                         <option value="ESTJ">ESTJ 📊</option>
@@ -360,14 +161,11 @@
                         <option value="ENFP">ENFP 🌈</option>
                         <option value="ENTP">ENTP 💡</option>
                         <option value="ENFJ">ENFJ 🌍</option>
-                    </select><!--16 Types (MBTI)-->
-                    <button style="text-decoration: none;" class="w3-card w3-round w3-padding w3-red w3-margin-top" onclick="window.open('https://www.16personalities.com/fr/test-de-personnalite')">Personnalité ▶</button>
-                    <hr>
-
-                    <!--métabolique de base (MB)-->
+                    </select>
+                    <button class="w3-card w3-round w3-padding w3-red" onclick="window.open('https://www.16personalities.com/fr/test-de-personnalite')">Personnalité ▶</button>
+                    <br><br>
                     <label for="height" class="w3-text-gray">Taille </label><input type="number" id="height" name="height" placeholder="Entrez votre taille en cm" value="172" required><br>
                     <label for="weight" class="w3-text-gray">Poids </label><input type="number" id="weight" name="weight" placeholder="Entrez votre poids en kg" value="69" required><br>
-                    <!--(Activity*Exp)-->
                     <select id="activity-level" name="activity🏋🏻*EXP" required>
                         <option value="1.2">Sédentaire (Peu ou pas d'exercice)</option>
                         <option value="1.375">Légèrement actif (1 à 3 séances d'exercice par semaine)</option>
@@ -376,109 +174,9 @@
                         <option value="1.9">Extrêmement actif (Travail physique intense ou pratique sportive fréquente)</option>
                     </select>
                 </div>
-
-
-
-
-                <form>
-                    <table class="w3-card w3-hide">
-                    <tr>
-
-                        <td>
-                            <input type="radio" id="corporation" name="faction" value="corporation"><label for="corporation"><b>Alliance</b></label><br>
-                            <input type="radio" id="resistance" name="faction" value="resistance"><label for="resistance"><b>Horde</b></label><br>                            
-                        </td>
-
-                        <td>
-                            <p>Classe</p>
-                            <input type="radio" id="shaman" name="class" value="shaman"><label for="shaman" class="w3-text-blue"><b>Sha</b>man 🌀</label><br>
-                            <input type="radio" id="mage" name="class" value="mage"><label for="mage" class="w3-text-blue"><b>Ma</b>ge 🧙‍♂️</label><br>
-                            <input type="radio" id="warlock" name="class" value="warlock"><label for="warlock" class="w3-text-blue"><b>War</b>lock 👹</label><br>
-                            <input type="radio" id="druid" name="class" value="druid"><label for="druid" class="w3-text-blue"><b>Dru</b>id 🌿</label><br>
-                            <input type="radio" id="demon-hunter" name="class" value="demon-hunter"><label for="demon-hunter" class="w3-text-blue"><b>De</b>mon Hunter 😈</label><br>
-                            <input type="radio" id="monk" name="class" value="Bmonk"><label for="monk" class="w3-text-blue"><b>Mon</b>k 🥋</label><br>
-                            <input type="radio" id="monk" name="class" value="Amonk"><label for="monk" class="w3-text-red"><b>Mon</b>k 🥋</label><br>
-                            <input type="radio" id="warrior" name="class" value="warrior"><label for="warrior" class="w3-text-red"><b>War</b>rior ⚔️</label><br>
-                            <input type="radio" id="hunter" name="class" value="hunter"><label for="hunter" class="w3-text-red"><b>Hun</b>ter 🏹</label><br>
-                            <input type="radio" id="rogue" name="class" value="rogue"><label for="rogue" class="w3-text-red"><b>Rog</b>ue 🗡️</label><br>
-                            <input type="radio" id="priest" name="class" value="priest"><label for="priest" class="w3-text-red"><b>Pri</b>est ⛪</label><br>
-                            <input type="radio" id="death-knight" name="class" value="death-knight"><label for="death-knight" class="w3-text-red"><b>Dea</b>th Knight ☠️</label><br>
-                        </td>
-
-                    </tr>
-                    </table>
-                </form>
-
-
             </form>
         </div>
     </div>
-
-        <div class="w3-container w3-hide section" id="life-expectancy-section">
-            <h2>Espérance de Vie Restante</h2>
-            <div class="w3-margin-bottom">
-                <label>Femmes:</label>
-                <div class="w3-light-grey">
-                    <div id="lifeExpectancyFemale" class="w3-container w3-blue" style="width:0%">0 ans</div>
-                </div>
-            </div>
-            <div>
-                <label>Hommes:</label>
-                <div class="w3-light-grey">
-                    <div id="lifeExpectancyMale" class="w3-container w3-green" style="width:0%">0 ans</div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="w3-container w3-hide w3-theme-d3 w3-padding-16">
-            <!-- Spells|CTA --> 
-            <div class="w3-container">
-            <p>
-                <span class="w3-tag w3-small w3-theme-d5">News</span>
-                <span class="w3-tag w3-small w3-theme-d4">Schools</span>
-                <span class="w3-tag w3-small w3-theme-d3">Labels</span>
-                <span class="w3-tag w3-small w3-theme-d2">Games</span>
-                <span class="w3-tag w3-small w3-theme-d1">Friends</span>
-                <span class="w3-tag w3-small w3-theme">Games</span>
-                <span class="w3-tag w3-small w3-theme-l1">Friends</span>
-                <span class="w3-tag w3-small w3-theme-l2">Food</span>
-                <span class="w3-tag w3-small w3-theme-l3">Design</span>
-                <span class="w3-tag w3-small w3-theme-l4">Art</span>
-                <span class="w3-tag w3-small w3-theme-l5">Photos</span>
-
-                <!--DNA🧬-->
-                <i class="fas fa-dna w3-tag " title="Genetics"></i>
-                <i class="fas fa-brain w3-tag" title="Intelligence"></i>
-                <i class="fas fa-eye w3-tag" title="Vision"></i>
-                <i class="fas fa-dumbbell w3-tag" title="Strength"></i>
-                <i class="fas fa-baby w3-tag" title="Youth"></i>
-                <i class="fas fa-shield-alt w3-tag" title="Protection"></i>
-                <i class="fas fa-ruler w3-tag" title="Measurement"></i>
-                <i class="fas fa-heartbeat w3-tag" title="Health"></i>
-                <i class="fas fa-cogs w3-tag" title="Complexity"></i>
-                <i class="fas fa-seedling w3-tag" title="Growth"></i>
-                <i class="fas fa-lungs w3-tag" title="Respiration"></i>
-                <i class="fas fa-dna w3-tag" title="Genetics"></i>
-                <i class="fas fa-ribbon w3-tag" title="Decoration"></i>
-                <br>
-                <i class="fas fa-shield-virus w3-tag" title="Immunity"></i>
-                <i class="fas fa-brain w3-tag" title="Intelligence"></i>
-                <i class="fas fa-bacon w3-tag" title="Delicious"></i>
-                <i class="fas fa-dna w3-tag" title="Genetics"></i>
-                <i class="fas fa-child w3-tag" title="Offspring"></i>
-                <i class="fas fa-pills w3-tag" title="Medicine"></i>
-                <i class="fas fa-shield-alt w3-tag" title="Protection"></i>
-                <i class="fas fa-heart w3-tag" title="Love"></i>
-                <i class="fas fa-shield-virus w3-tag" title="Immunity"></i>
-                <i class="fas fa-venus-mars w3-tag"></i>
-
-            </p>
-
-            </div>
-        </footer>
-
-
-
-
 </body>
+
 </html>

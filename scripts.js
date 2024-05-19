@@ -142,6 +142,7 @@
                     "ENFJ": "#b366ff", // Purple
                     "ENTJ": "#ff66b3"  // Pink
                 };
+                
                 const mbtiInfo = {
                     "ISTJ": {
                         "functionAux": "Pensée extravertie",
@@ -169,7 +170,7 @@
                         "functionPrimary": "Intuition introvertie",
                         "demographic": "2,1%",
                         "subtype": "Architecte",
-                        "nickname": "Maître de la stratégie"
+                        "nickname": "Maître stratège"
                     },
                     "ISTP": {
                         "functionAux": "Sensation extravertie",
@@ -211,7 +212,7 @@
                         "functionPrimary": "Sensation extravertie",
                         "demographic": "8,5%",
                         "subtype": "Animateur",
-                        "nickname": "Artiste de la scène"
+                        "nickname": "Artiste de scène"
                     },
                     "ENFP": {
                         "functionAux": "Sentiment introverti",
@@ -224,7 +225,7 @@
                         "functionAux": "Pensée introvertie",
                         "functionPrimary": "Intuition extravertie",
                         "demographic": "3,2%",
-                        "subtype": "Débateur",
+                        "subtype": "Débatteur",
                         "nickname": "Visionnaire"
                     },
                     "ESTJ": {
@@ -249,11 +250,11 @@
                         "nickname": "Enseignant"
                     },
                     "ENTJ": {
-                        "functionAux": "Intuition extravertie",
-                        "functionPrimary": "Pensée extravertie",
+                        "functionAux": "Pensée extravertie",
+                        "functionPrimary": "Intuition extravertie",
                         "demographic": "1,8%",
                         "subtype": "Commandant",
-                        "nickname": "Maréchal de champ"
+                        "nickname": "Maréchal"
                     }
                 };
 
@@ -262,8 +263,10 @@
 
                 const info = mbtiInfo[selectedType];
                 const infoHtml = `
-                    <p>${info.subtype}</p>
-                    <b>${info.nickname}</b>
+                    
+                    <p>${info.nickname}</p>
+                    <p></p>
+                    <h5 contenteditable="true" class="w3-text-theme"><b>${info.subtype}</b></h5>
                     <hr>
                     <div>${info.demographic}</div>
                     <small>
